@@ -1,0 +1,58 @@
+#若不是文章页面，则显示此title
+title: BW
+language: zh-cn
+author: BWmagician
+#网页logo,图片放在img文件夹下
+iconpath: /img/icon.ico
+
+#menu不要改动，存放相对路径
+menu:
+  home: /
+  categories: /categories
+  archives: /archives
+  #tag一看就好麻烦啊，不想写a。2025/6/19，10年后再写吧:)
+  #tags: /tags
+  about: /about
+
+content:
+  post:
+    #文章未分类
+    categoryUndefined: not founded yet //
+  index:
+    blogTitle: 乌鱼魔鲵鲨的blog
+  footer:
+    currentYear: 2025
+    #footer显示不显示前两行
+    display: true
+    text1: "若要转载，请先联系作者"
+    text2: ""
+
+post:
+  #没有二级标题的的时候把内容展开到右侧
+  #具体可以在source/js/post.js中调整
+  extendContent: true
+
+categories:
+  #此参数没用，helper的前置内容会在theme解析之前定义，
+  #修改 scripts/categories_folder.js 的 N
+  #edgeNumberMax: 100000
+
+pagination:
+  path: /page
+  home: /
+  #总共会展示 number *2 - 1 个页数
+  number: 5
+
+#如果想显示中文就改成中文
+prompt:
+  author: author
+  category: category
+  archive: archive
+  #字最好不要太多，不要超过50px，因为写代码的时候就是塞到50px的格子里了
+  #具体
+  nextpage: 下一页
+  prevpage: 上一页
+  #没有上一页会显示什么，删掉就是不显示
+  nonextpage: "]"
+  #没有下一页
+  noprevpage: "["

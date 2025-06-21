@@ -1,0 +1,33 @@
+<postContent>
+    <postHeader>
+        <h1 style="margin-bottom: 10px;"> <%- page.title %> </h1>
+        <% let author="" ,first=false; 
+        if(page.author) author=page.author; 
+        else author=theme.author; 
+        %>
+        <!-- 生成副标题，就是显示作者分类那一行 -->
+        <div id="postSubtitle">
+            <%- theme.prompt.author+' : '+author +' | '+ theme.prompt.category+' : ' %> 
+            <% if(page.categories&&page.categories.length>0){ %>
+                <% page.categories.forEach(function(category) { %>
+                    <a href="<%= url_for(category.path) %>">
+                        <% if(first==false){ first=true; %>
+                            <%= category.name %>
+                        <% }else{%>
+                            <%= '> '+category.name %>
+                        <% } %>
+                    </a>
+                <% }) %>
+            <% }else{ %>
+                <span>
+                    <%= theme.content.post.categoryUndefined %>
+                </span>
+            <% } %>
+        </div>
+    </postHeader>
+    <%- page.content %>
+</postContent>
+
+<aside>
+    <%-include('aside.ejs')%>
+</aside>

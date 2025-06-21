@@ -1,0 +1,13 @@
+<div>
+    <% if (page.toc && page.toc.length) { %>
+        <ul>
+            <% page.toc.forEach(function(item) { %>
+                <a href="#<%= item.id %>">
+                    <li class="asideHeadings">
+                        <%= item.text %>
+                    </li>
+                </a>
+            <% }) %>
+        </ul>
+    <% } %>
+</div>

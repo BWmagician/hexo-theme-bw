@@ -1,0 +1,23 @@
+.archives{
+    margin-left: 1%;
+}
+
+.archiveMonths{
+    margin-top: 5px;
+}
+
+.archiveArticlesBox{
+    max-width: 1000px;
+    position: relative;
+    margin: 10px;
+}
+
+.archiveArticlesTitle{
+    max-width: 900px;
+}
+
+.archiveArticlesDate{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

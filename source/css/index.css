@@ -1,0 +1,68 @@
+#indexTitle {
+    text-decoration: overline;
+    /* padding-top: 20px; */
+    /* font-size: 3rem; */
+    text-align: center;
+}
+
+#articles {
+    padding-left: 3%;
+    padding-right: 5%;
+    padding-top: 3%;
+}
+
+.articleBox {
+    width: 60vw;
+    min-height: 8rem;
+    margin: 0px 5px 10px 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.articleTitle {
+    font-size: 2.2rem;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.articleBoxBottom {
+    bottom: 0;
+    right: 0;
+
+    position: absolute;
+}
+
+.pictureRight{
+    width: 386px;
+    height: 773px;
+    position: absolute;
+    bottom: 130px;
+    left: 73%;
+    background-image: url("../img/molishadebeiying.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.triangleTopRight {
+    height: 0;
+    width: 0;
+    border-top: 10px solid black;
+    border-left: 10px solid transparent;
+    right: 0;
+    top: 0;
+
+    position: absolute;
+}
+
+.triangleBottomLeft {
+    height: 0;
+    width: 0;
+    border-bottom: 10px solid black;
+    border-right: 10px solid transparent;
+    left: 0;
+    bottom: 0;
+
+    position: absolute;
+}

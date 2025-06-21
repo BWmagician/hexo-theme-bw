@@ -1,0 +1,37 @@
+.categoryTitles,
+.categoryPostTitles {
+    font-size: 2rem;
+}
+
+.categoryTitles {
+    border: 1px solid;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    max-width: 1000px;
+}
+
+.categoryPostTitles {
+    max-width: 900px;
+    display: block;
+}
+
+.categoryTitles_chosen{
+    border-left: 2px solid;
+    padding-left: 10px;
+}
+
+.categoryContainer{
+    padding: 0%;
+}
+
+.categoryRightPicture{
+    width: 290px;
+    height: 615px;
+    position: absolute;
+    bottom: 130px;
+    left: 78%;
+    background-image: url("../img/zunhui.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}

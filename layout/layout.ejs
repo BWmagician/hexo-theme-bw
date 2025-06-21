@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="<%= theme.language %>">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="<%- theme.iconpath %>">
+    <title>
+        <%= page.title? page.title :theme.title%>
+    </title>
+    <!-- 引入firacode字体，给代码块用的 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+    <%- css('css/main') %>
+    <%- css('css/index') %>
+    <%- css('css/post')%>
+    <%- css('css/category' )%>
+    <%- css('css/aside') %>
+    <%- css('css/archive') %>
+</head>
+
+<body>
+    <!-- 生成导航栏 -->
+    <nav>
+        <% for(it in theme.menu){ %>
+            <div class="navBox">
+                <a href="<%- url_for(theme.menu[it]) %>" class="navText">
+                    <%= it %>
+                </a>
+            </div>
+        <% } %>
+    </nav>
+    <main>
+        <!-- 插入主体内容 -->
+        <container id="container">
+            <%- body %>
+        </container>
+        <!-- 生成页脚 -->
+        <footer id="footer">
+            <%if(theme.content.footer.display){%>
+                <p> <%=`©2025 - ${theme.content.footer.currentYear} by ${theme.author}`%> </p>
+                <p> </p>
+            <% } %>
+            <div> <%= theme.content.footer.text1 %> </div>
+            <div> <%= theme.content.footer.text2 %> </div>
+        </footer>
+    </main>
+    <%- js('js/main') %>
+    <!-- 插入mathjax的cdn，具体配置可以参照https://www.cnblogs.com/wangxin37/p/8185688.html这篇文章 -->
+    <%- partial('_partial/mathjax') %>
+    <!-- 引入必要的js代码 -->
+    <% if(page.__index){%>
+        <%- js('js/index') %>
+    <% } %>
+    <% if(page.__post){ %>
+        <%- js('js/aside') %>
+        <% if(theme.post.extendContent){ %>
+            <%- js('js/post') %>
+        <% } %>
+    <% } %>
+</body>
+
+</html>

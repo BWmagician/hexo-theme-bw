@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+::selection{
+    background-color: black;
+    color: white;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+nav {
+    top: 0;
+    width: 5vw;
+    height: 100vh;
+    border-right: 1px black;
+    position: fixed;
+}
+
+main {
+    min-height: 100vh;
+    margin-left: 7vw;
+    position: relative;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline black 1px;
+}
+
+a:active {
+    color: black;
+    text-decoration: underline dashed black 1px;
+}
+
+#container {
+    width: auto;
+}
+
+#footer {
+    height: 10rem;
+    width: 100%;
+    text-align: center;
+    border-top: 2px solid;
+}
+
+.navBox {
+    height: 5rem;
+    display: grid;
+    align-items: center;
+    position: relative;
+}
+
+.navText {
+    height: 3rem;
+    font-size: 1.6rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+#pagination {
+    margin-bottom: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.page-number {
+    width: 40px;
+    text-align: center;
+}
+
+.page-prev {
+    width: 50px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.page-next {
+    width: 50px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.current {
+    border: 1px solid;
+}
+

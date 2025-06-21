@@ -1,0 +1,36 @@
+<!-- 形成页码 -->
+<!-- 对应的css设置在main.css中 -->
+
+<% if (page.total> 1) { %>
+    <div id="pagination">
+        <!-- 往左半部分填入空页码确保左右对齐 -->
+        <% for(let i=page.current;i<=theme.pagination.number-1;++i){ %>
+            <span class="page-number"> </span>
+        <% } %>
+        <% if(page.prev){ %>
+            <a href="<%- url_for(page.prev_link) %>" class="page-prev"> <%= theme.prompt.prevpage %> </a>
+            <% }else{ %>
+                <span class="page-prev"> [ </span>
+            <% } %>
+            <% for (let i=1; i <=page.total; ++i) { %>
+                <% if(i==page.current){ %>
+                    <span class="page-number current">
+                         <%= i %>
+                    </span>
+                <% }else{ %>
+                <a href="<%- url_for(i === 1 ? theme.pagination.home : theme.pagination.path + '/' + i) %>" class="page-number">
+                    <%= i %>
+                </a>
+            <% } %>
+        <% } %>
+        <% if(page.next){ %>
+            <a href="<%- url_for(page.next_link) %>" class="page-next"> <%= theme.prompt.nextpage %> </a>
+        <% }else{ %>
+            <span class="page-next"> ] </span>
+        <% } %>
+        <!-- 往右半部分填入空页码确保左右对齐 -->
+        <% for(let i=page.total+1;i<=page.current+theme.pagination.number-1;++i){%>
+            <span class="page-number"> </span>
+        <% } %>
+    </div>
+<% } %>

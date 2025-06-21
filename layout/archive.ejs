@@ -1,0 +1,21 @@
+<h1 style="padding: 30px;padding-bottom: 30px;text-align: center;">
+    <%= theme.prompt.archive%>
+</h1>
+
+<div class="archives">
+<!-- 按年分组 -->
+    <% const sorted = site.posts.sort('date', 'desc'); %>
+    <% let year=-1,month=-1;%>
+    <% sorted.each(function(post){%>
+        <!-- 月份变化，重开一块 -->
+        <% if(year!=post.date.year()||month!=post.date.month()){ %>
+            <% year=post.date.year(),month=post.date.month(); %>
+            <h3 class="archiveMonths" style="font-size: 2rem;"> <%= `${year}.${month+1}`%>  </h3>
+        <% } %>
+        <!-- 生成文章缩略 -->
+        <div class="archiveArticlesBox">
+            <a href="<%-url_for(post.path)%>" class="archiveArticlesTitle"><div><%- post.title %></div></a>
+            <div class="archiveArticlesDate"> <%- moment(post.date).format("YYYY-MM-DD") %></div>
+        </div>
+    <% }); %>
+</div>

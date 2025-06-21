@@ -1,0 +1,31 @@
+<!-- 首页 -->
+
+<!-- 生成大标题 -->
+<h1 id="indexTitle" style="padding-top: 30px;padding-bottom: 10px;text-align: center;">
+    <%= theme.content.index.blogTitle %>
+</h1>
+
+<!-- 生成文章缩略 -->
+<div id="articles">
+    <% page.posts.each(function(post){ %>
+        <div class="articleBox">
+            <a href="<%- url_for(post.path) %>">
+                <div class="articleTitle">
+                    <%-post.title%>
+                </div>
+            </a>
+            <div class="articleBoxBottom">
+                <%- moment(post.date).format("YYYY-MM-DD") %>
+            </div>
+            <!-- 设置sticky>1或fixed: true 都会在右上角挂上挂上小三角形 -->
+            <% if((post.fixed!=false&&post.sticky>1)||(post.fixed==true)){ %>
+                <div class="triangleTopRight"> </div>
+            <% } %>
+        </div>
+    <% }) %>
+</div>
+
+<div class="pictureRight">
+</div>
+
+<%- partial('_partial/pagination') %>
