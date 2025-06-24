@@ -6,3 +6,7 @@ if(asideHeadings.length==0){
     postContent[0].setAttribute('style','margin-right:20px');
     aside[0].setAttribute('style','z-index:-1;')
 }
+
+function cfp(x){
+    return false;
+}

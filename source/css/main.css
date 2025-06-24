@@ -97,3 +97,6 @@ a:active {
     border: 1px solid;
 }
 
+summary{
+    cursor: pointer;
+}

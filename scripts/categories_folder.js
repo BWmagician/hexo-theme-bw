@@ -43,10 +43,12 @@ function dfs(x, depth) {
     return res;
 }
 
-hexo.extend.helper.register('categories_folder', function (data, path) {
-    for (let i = 0; i < N + 5; ++i) vis[i] = 0;
-    if (buf == 0) {
+hexo.extend.helper.register('categories_folder', function (data, pos) {
+    // console.log("this is categories_folder");
+    for (let i = 0;i <= cnt; ++i) vis[i] = 0;
+    if (buf == 0) { 
         data.forEach(post => {
+            for (let i = 0; i < N + 5; ++i) vis[i] = 0;
             let categories = post.categories;
             let u = 1; //root = 1
             categories.forEach(cat => {
@@ -61,18 +63,21 @@ hexo.extend.helper.register('categories_folder', function (data, path) {
             content[u].push([this.url_for(post.path), post.title]);
         });
     }
-    if (path != "") {
-        const pathArr = path.split('/');
-        let u = map[pathArr[pathArr.length - 2]];
+    buf = 1;
+    if(pos){
+        let u = map[pos];
         //被特定选中的分类标一个-2
         vis[u]=-2;
         u=fa[u];
         //需要打开的路径标记-1
-        while (u != 1) {
+        while (u != 1 && u) { //防止输入信息不合法卡死
             vis[u] = -1;
             u = fa[u];
         }
     }
-    buf = 1;
-    return dfs(1, -1);
+    return dfs(1,-1);
 });
+
+hexo.extend.helper.register('categories_folder_buf', function () {
+    return buf;
+})

@@ -45,9 +45,14 @@ pagination:
 
 #如果想显示中文就改成中文
 prompt:
-  author: author
-  category: category
-  archive: archive
+  #此处修改中英文，想要英文就把后面改成英文
+  author: 作者
+  categories: 分类
+  category: 分类
+  home: 首页
+  archives: 归档
+  archive: 归档
+  about: 关于
   #字最好不要太多，不要超过50px，因为写代码的时候就是塞到50px的格子里了
   #具体
   nextpage: 下一页

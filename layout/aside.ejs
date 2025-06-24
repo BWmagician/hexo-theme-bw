@@ -1,13 +1,30 @@
 <div>
     <% if (page.toc && page.toc.length) { %>
-        <ul>
-            <% page.toc.forEach(function(item) { %>
+        <% let first = false; %>
+        <% page.toc.forEach(function(item) { %>
+            <% if(item.element=="h2"){ %>
+                <% if(first == false){ %>
+                    <% first = true; %>
+                <% }else{ %>
+                   <%- "</details>" %> 
+                <% } %>
+                <details class="asiderDetails">
+                <summary>
+                    <a href="#<%= item.id %>">
+                        <div class="asiderH2">
+                            <%= item.text%>
+                        </div>
+                    </a>
+                </summary>
+            <% }else{ %>
                 <a href="#<%= item.id %>">
-                    <li class="asideHeadings">
+                    <div class="asiderH3">
                         <%= item.text %>
-                    </li>
+                    </div>
                 </a>
-            <% }) %>
-        </ul>
+            <% } %>
+        <% }) %>
+        <!-- 补齐最后一个 -->
+        </details>
     <% } %>
 </div>

@@ -10,7 +10,7 @@ else footer.setAttribute('style','');
 
 //在缩放时即使更新
 window.addEventListener('resize', function() {
-    console.log(this.window.innerHeight);
+    // console.log(this.window.innerHeight);
     if (container.offsetHeight + footer.scrollHeight < window.innerHeight) {
         footer.setAttribute('style', 'position: absolute;');
         footer.style.bottom = 0;
