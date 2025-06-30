@@ -8,6 +8,26 @@ let head = new Array(N + 5), to = new Array(N + 5), nxt = new Array(N + 5), vis 
 let map = {}, H = new Array(N + 5), content = new Array(N + 5);
 let cnt = 1, edge_num = 0;
 
+//此函数为deepseek生成，在generator中无法使用url_for，需要手写
+function url_for(path) {
+  const { config } = hexo;
+  const { root } = config;
+  // 如果路径以`http://`或`https://`开头，直接返回
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+  // 确保路径以斜杠开头
+  path = path.replace(/^([^/])/, '/$1');
+  // 处理root路径
+  if (root && root !== '/') {
+    // 确保root以斜杠开头和结尾
+    let rootPath = root.replace(/(^[^/])/, '/$1').replace(/([^/])$/, '$1/');
+    // 将root和path连接起来
+    return rootPath + path.replace(/^\//, '');
+  }
+  return path;
+}
+
 function add_edge(f, t) {
     nxt[++edge_num] = head[f];
     to[edge_num] = t;
@@ -19,9 +39,8 @@ function dfs(x, depth) {
     // console.log(`now come to >>${x} + ${vis[x]}`);
     let res = "";
     if (x != 1) {
-        if( vis[x] == -2) res = `<details open class="categoryTitles_chosen"><summary class="categoryTitles" style="padding-left:${depth * K}px">${H[x]}</summary>`;
-        else if (vis[x] == -1) res = `<details open><summary class="categoryTitles" style="padding-left:${depth * K}px">${H[x]}</summary>`;
-        else res = `<details><summary class="categoryTitles" style="padding-left:${depth * K}px">${H[x]}</summary>`;
+        let id = `category_${H[x]}`;
+        res = `<details id="${id}"><summary class="categoryTitles" style="padding-left:${depth * K}px">${H[x]}</summary>`;
     }
     vis[x] = 1;
     for (let i = head[x]; i; i = nxt[i]) {
@@ -43,9 +62,9 @@ function dfs(x, depth) {
     return res;
 }
 
-hexo.extend.helper.register('categories_folder', function (data, pos) {
-    // console.log("this is categories_folder");
-    for (let i = 0;i <= cnt; ++i) vis[i] = 0;
+hexo.extend.generator.register('categories_folder_generate', function (locals) {
+    // console.log("this is categories_folder_generate");
+    data = locals.posts;
     if (buf == 0) { 
         data.forEach(post => {
             for (let i = 0; i < N + 5; ++i) vis[i] = 0;
@@ -60,24 +79,24 @@ hexo.extend.helper.register('categories_folder', function (data, pos) {
                 u = map[cat.name];
             });
             if (!content[u]) content[u] = [];
-            content[u].push([this.url_for(post.path), post.title]);
+            content[u].push([url_for(post.path), post.title]);
         });
     }
-    buf = 1;
-    if(pos){
-        let u = map[pos];
-        //被特定选中的分类标一个-2
-        vis[u]=-2;
-        u=fa[u];
-        //需要打开的路径标记-1
-        while (u != 1 && u) { //防止输入信息不合法卡死
-            vis[u] = -1;
-            u = fa[u];
-        }
-    }
+    return;
+}, {priority: 1});
+
+hexo.extend.helper.register('categories_folder', function(){
+    for (let i = 0;i <= cnt; ++i) vis[i] = 0;
     return dfs(1,-1);
 });
 
-hexo.extend.helper.register('categories_folder_buf', function () {
-    return buf;
-})
+//
+hexo.extend.generator.register('hexo_vars', function(locals) {
+  return {
+    path: 'categories-pathData.json',
+    data: JSON.stringify({
+      fa: fa,
+      H: H
+    })
+  };
+}, {priority: 2});

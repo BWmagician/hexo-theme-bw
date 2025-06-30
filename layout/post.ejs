@@ -10,10 +10,10 @@
             <%- theme.prompt.author+' : '+author +' | '+ theme.prompt.category+' : ' %> 
             <% if(page.categories&&page.categories.length>0){ %>
                 <% page.categories.forEach(function(category) { %>
-                    <a href="<%= url_for(category.path) %>">
+                    <a href="<%= url_for(theme.menu['categories'])+'/?category='+category.name %>">
                         <% if(first==false){ first=true; %>
                             <%= category.name %>
-                        <% }else{%>
+                        <% }else{ %>
                             <%= '> '+category.name %>
                         <% } %>
                     </a>

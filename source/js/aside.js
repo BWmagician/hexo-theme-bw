@@ -48,7 +48,7 @@ document.addEventListener("scroll", function () {
         ++posh3;
         addStyleh3(posh3);
     }
-    while (posh3 >= 0 && x + eps < h3[posh3].offsetTop) {
+    while (posh3 >= 0 && x + eps < h3[posh3].offsetTop ) {
         delStyleh3(posh3);
         --posh3;
         addStyleh3(posh3);

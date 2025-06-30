@@ -4,11 +4,7 @@
 </h1>
 
 <div class="categoryContainer">
-    <% if(categories_folder_buf()==0){%> 
-        <%- categories_folder(site.posts,null); %>
-    <% }else{ %>
-        <%- categories_folder(null,null);  %>
-    <% } %>
+    <%- categories_folder(); %>
 </div>
 
 <div class="categoryRightPicture">
