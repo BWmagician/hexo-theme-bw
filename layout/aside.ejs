@@ -11,14 +11,15 @@
                 <details class="asiderDetails">
                 <summary>
                     <a href="#<%= item.id %>">
-                        <div class="asiderH2">
+                        <!-- 防止闪现 -->
+                        <div class="asiderH2" style="display: none">
                             <%= item.text%>
                         </div>
                     </a>
                 </summary>
             <% }else{ %>
                 <a href="#<%= item.id %>">
-                    <div class="asiderH3">
+                    <div class="asiderH3" style="display: none">
                         <%= item.text %>
                     </div>
                 </a>

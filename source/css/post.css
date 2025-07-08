@@ -9,20 +9,21 @@ aside {
     position: fixed;
 }
 
+
 postContent {
     display: block;
-    margin-left: 10vw;
-    margin-right: 20vw;
-    padding-left: 10px;
+    min-width: 600px;
+    margin-left: 210px;
+    margin-right: 24vw;
     padding-right: 30px;
     padding-bottom: 20px;
 
     /* 略大 */
-    font-size: 1.7rem;
+    font-size: 1.8rem;
 }
 
 /* 文章中的链接需要比较醒目 */
-postContent a{
+postContent a {
     border-radius: 0.5rem;
     border: 1px solid;
     padding-left: 2px;
@@ -34,88 +35,88 @@ postContent a{
 postHeader {
     text-align: center;
     display: block;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
 #postSubtitle {
-
     text-align: right;
-    padding-right: 10vw;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 4.2rem;
     text-align: center;
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 3.6rem;
     text-align: center;
     margin-top: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
 }
 
 h3 {
     border-left: 5px solid black;
     padding-left: 3px;
-    font-size: 2.6rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-size: 3.0rem;
+    margin-top: 45px;
+    margin-bottom: 25px;
 }
 
 h4 {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     font-style: italic;
 }
 
 h5 {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
 }
 
 h6 {
-    font-size: 1.4rem;
+    font-size: 2.0rem;
 }
 
 h4,
 h5,
 h6 {
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-
-.postContent p{
-    margin-top: 5px;
-    margin-bottom: 5px;
+postContent p {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.code{
+.code {
     border-left: 1.5px solid;
     padding-left: 0.2rem;
     font-weight: 500;
 }
 
-.gutter{
+.gutter {
     padding-right: 0.5rem;
     font-weight: 500;
 }
 
-.highlight{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.highlight {
+    margin-top: 15px;
+    margin-bottom: 15px;
     background-color: rgb(234, 234, 234);
     border-radius: 5px;
 }
 
-pre, 
-code, 
+pre,
+code,
 .code {
     font-family: 'Fira Code', monospace;
     font-size: 1.6rem;
-    font-feature-settings: 'liga', 'calt'; /* 启用连字 */
+    font-feature-settings: 'liga', 'calt';
+    /* 启用连字 */
 }
 
 /* 给行内代码块加入特效 */
-code{
+code {
     background-color: rgb(234, 234, 234);
     border-radius: 5px;
     padding: 0px 2px 0px 2px;
@@ -124,6 +125,16 @@ code{
 
 img,
 figure {
+    margin-top: 15px;
+    margin-bottom: 15px;
     max-width: 100%;
     height: auto;
+}
+
+.code span{
+    white-space: pre-wrap;
+}
+
+.gutter span{
+    display: inline-block;
 }

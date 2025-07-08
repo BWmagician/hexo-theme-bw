@@ -4,7 +4,7 @@
     box-sizing: inherit;
 }
 
-::selection{
+::selection {
     background-color: black;
     color: white;
 }
@@ -15,11 +15,12 @@ html {
 
 body {
     font-size: 1.6rem;
+    background-color: white;
 }
 
 nav {
     top: 0;
-    width: 5vw;
+    width: 80px;
     height: 100vh;
     border-right: 1px black;
     position: fixed;
@@ -27,7 +28,7 @@ nav {
 
 main {
     min-height: 100vh;
-    margin-left: 7vw;
+    margin-left: 80px;
     position: relative;
 }
 
@@ -43,10 +44,6 @@ a:hover {
 a:active {
     color: black;
     text-decoration: underline dashed black 1px;
-}
-
-#container {
-    width: auto;
 }
 
 #footer {
@@ -97,6 +94,11 @@ a:active {
     border: 1px solid;
 }
 
-summary{
+summary {
     cursor: pointer;
+}
+
+/* 在safari去掉那个小三角形 */
+details summary::-webkit-details-marker {
+    display: none;
 }

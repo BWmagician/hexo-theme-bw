@@ -34,7 +34,8 @@
             <%- body %>
         </container>
         <!-- 生成页脚 -->
-        <footer id="footer">
+        <!-- 防止footer闪现 -->
+        <footer id="footer" style="display:none">
             <%if(theme.content.footer.display){%>
                 <p> <%=`©2025 - ${theme.content.footer.currentYear} by ${theme.author}`%> </p>
                 <p> 框架: <a href="https://hexo.io/zh-cn/"> hexo </a> |
