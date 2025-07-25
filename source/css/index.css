@@ -6,8 +6,6 @@
 }
 
 #articles {
-    padding-left: 3%;
-    padding-right: 5%;
     padding-top: 3%;
     display: flex;
     flex-direction: column;

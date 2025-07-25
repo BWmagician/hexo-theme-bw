@@ -63,12 +63,6 @@ a:active {
     text-decoration: underline dashed 1px;
 }
 
-#container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
 #footer {
     height: 10rem;
     width: 100lvw;

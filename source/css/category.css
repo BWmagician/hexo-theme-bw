@@ -1,13 +1,13 @@
 .categoryTitles,
 .categoryPostTitles {
-    font-size: 2rem;
+    font-size: var(--arcText);
 }
 
 .categoryTitles {
     border: 1px solid;
     margin-bottom: 4px;
     box-sizing: border-box;
-    max-width: 1000px;
+    width: 80vw;
 }
 
 .categoryPostTitles {
@@ -24,14 +24,17 @@
     width: 80svw;
     min-width: 800px;
     padding: 0%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .categoryRightPicture{
     width: 290px;
     height: 615px;
     position: absolute;
-    bottom: 130px;
-    left: 78%;
+    right: min(40%,150px);
+    bottom: 120px;
     background-image: url("../img/zunhui.png");
     background-repeat: no-repeat;
     background-size: cover;
