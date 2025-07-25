@@ -21,6 +21,8 @@
 }
 
 .categoryContainer{
+    width: 80svw;
+    min-width: 800px;
     padding: 0%;
 }
 

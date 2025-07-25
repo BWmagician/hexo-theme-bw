@@ -1,5 +1,6 @@
 archiveContent{
-    margin-left: 100px;
+    width: 80svw;
+    min-width: 800px;
     display:block;
 }
 
@@ -9,6 +10,7 @@ archiveContent{
 
 .archiveMonths{
     margin-top: 5px;
+    font-size: var(--arcText);
 }
 
 .archiveArticlesBox{

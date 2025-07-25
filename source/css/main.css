@@ -4,65 +4,111 @@
     box-sizing: inherit;
 }
 
-::selection {
-    background-color: black;
-    color: white;
-}
-
 html {
     font-size: 62.5%;
+    height: 100%;
+    width: 100%;
+}
+
+:root{
+    --bgcolor: white;
+    --txtcolor: black;
+    --sdcolor: rgba(0, 0, 0, 0.135);
+    --cdcolor: rgb(234, 234, 234);
+
+    --navText: 3rem;
+    --arcText: 2rem;
+
+    --codeWrap: pre-wrap;
+}
+
+::selection {
+    background-color: var(--txtcolor);
+    color: var(--bgcolor);
 }
 
 body {
     font-size: 1.6rem;
-    background-color: white;
+    color: var(--txtcolor);
+    background-color: var(--bgcolor);
 }
 
 nav {
     top: 0;
-    width: 80px;
-    height: 100vh;
-    border-right: 1px black;
+    width: 100lvw;
+    min-height: 65px;
+    height: 7vh;
     position: fixed;
+    z-index: 1;
+    background-color: var(--bgcolor);
+    box-shadow: 1px 1px 10px var(--sdcolor);
 }
 
 main {
     min-height: 100vh;
-    margin-left: 80px;
+    margin-top: 7svh;
     position: relative;
 }
 
 a {
-    color: black;
+    color: inherit;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline black 1px;
+    text-decoration: underline 1px;
 }
 
 a:active {
-    color: black;
-    text-decoration: underline dashed black 1px;
+    text-decoration: underline dashed 1px;
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #footer {
     height: 10rem;
-    width: 100%;
+    width: 100lvw;
     text-align: center;
     border-top: 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .navBox {
-    height: 5rem;
-    display: grid;
+    height: 100%;
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+#navBoxsLeft,
+#navBoxsRight{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    position: relative;
+}
+
+#navBoxsRight{
+    margin-right: 5px;
+}
+
+#navBoxsRight{
+    right: 0;
+}
+
+#navHome{
+    left: 0;
 }
 
 .navText {
-    height: 3rem;
-    font-size: 1.6rem;
+    font-size: var(--navText);
     text-decoration: none;
     text-align: center;
 }
@@ -79,13 +125,11 @@ a:active {
 }
 
 .page-prev {
-    width: 50px;
     margin-right: 10px;
     text-align: right;
 }
 
 .page-next {
-    width: 50px;
     margin-left: 10px;
     text-align: left;
 }

@@ -1,14 +1,23 @@
 let container = document.getElementById("container");
-let footer = document.getElementById("footer");
+let footer = document.getElementById("footer"); 
+let pagination = document.getElementById("pagination");
+let articles = document.getElementById("articles");
+
 
 // 如果页面过短则自动把footer放在底部，防止latex加载带来的高度变化
 const resizeObserverContainer = new ResizeObserver(x => {
     console.log(container.offsetHeight);
-    if (container.offsetHeight + footer.scrollHeight < window.innerHeight) {
+    if (container.offsetHeight + footer.scrollHeight - 65  < window.innerHeight) {
         footer.setAttribute('style', 'position: absolute;');
         footer.style.bottom = 0;
     }
     else footer.setAttribute('style','');
+    // 如果页面过短则自动把页码放在底部
+    if (pagination && articles.offsetHeight + pagination.offsetHeight - 55 + footer.offsetHeight < window.innerHeight) {
+        // console.log(pagination.offsetHeight);
+        pagination.setAttribute('style', `position:absolute;bottom: ${footer.offsetHeight + 10}px;left:50%;transform:translateX(-50%)`);
+    }
+
 });
 
 resizeObserverContainer.observe(container);
@@ -23,3 +32,52 @@ resizeObserverContainer.observe(container);
 //     }
 //     else footer.setAttribute('style','');
 // });
+
+function isMobile() {
+    let userAgent = navigator.userAgent.toLowerCase();
+    return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+}
+
+let mobileStr = "";
+
+if(isMobile()){
+    document.body.setAttribute('style','font-size:3.5rem');
+    document.documentElement.style.setProperty('--navText', '5rem');
+    document.documentElement.style.setProperty('--codeWrap', 'pre');
+        document.documentElement.style.setProperty('--arcText', '4rem');
+    mobileStr = "mobile";
+}
+
+
+let ldPic = document.getElementById("lightDarkButton");
+function checkMode(){
+    if(modelCount==0){
+        document.documentElement.style.setProperty('--bgcolor', 'white');
+        document.documentElement.style.setProperty('--txtcolor', 'black');
+        document.documentElement.style.setProperty('--sdcolor','rgba(0, 0, 0, 0.135)');
+        document.documentElement.style.setProperty('--cdcolor', 'rgb(234, 234, 234)');
+        ldPic.src=`/img/light${mobileStr}.drawio.svg`;
+    }
+    if(modelCount==1){
+        document.documentElement.style.setProperty('--bgcolor', '#252525');
+        document.documentElement.style.setProperty('--txtcolor', '#c7c7c7ff');
+        document.documentElement.style.setProperty('--sdcolor','rgba(255, 255, 255, 0.135)');
+        document.documentElement.style.setProperty('--cdcolor', 'rgba(62, 62, 62, 1)');
+        ldPic.src=`/img/dark${mobileStr}.drawio.svg`;
+    }
+}
+
+let modelCount = localStorage.getItem('bwthemeMode');
+let bodyElement = document.body;
+
+if(!modelCount){
+    modelCount=0;
+}
+checkMode();
+
+function changeModel(){
+    ++modelCount;
+    modelCount%=2;
+    localStorage.setItem('bwthemeMode',modelCount);
+    checkMode();
+}

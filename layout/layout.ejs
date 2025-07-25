@@ -20,13 +20,27 @@
 <body>
     <!-- 生成导航栏 -->
     <nav>
-        <% for(it in theme.menu){ %>
-            <div class="navBox">
-                <a href="<%- url_for(theme.menu[it]) %>" class="navText">
-                    <%= theme.prompt[it] %>
+        <div id="navBoxsLeft">
+            <span class="navBox" id="navHome">
+                <a href="<%- url_for(theme.menu["home"]) %>" class="navText">
+                    <%= theme.prompt["home"] %>
                 </a>
-            </div>
-        <% } %>
+            </span>
+            <span class="navBox">
+                <img id="lightDarkButton" onclick="changeModel()"> 
+            </span>
+        </div>
+        <div id="navBoxsRight">
+            <% for(it in theme.menu){ %>
+                <% if(it!="home"){ %>
+                    <div class="navBox">
+                        <a href="<%- url_for(theme.menu[it]) %>" class="navText">
+                            <%= theme.prompt[it] %>
+                        </a>
+                    </div>
+                <% } %>
+            <% } %> 
+        <div>
     </nav>
     <main>
         <!-- 插入主体内容 -->
@@ -38,7 +52,7 @@
         <footer id="footer" style="display:none">
             <%if(theme.content.footer.display){%>
                 <p> <%=`©2025 - ${theme.content.footer.currentYear} by ${theme.author}`%> </p>
-                <p> 框架: <a href="https://hexo.io/zh-cn/"> hexo </a> |
+                <p> 框架: <a href="https://hexo.io/zh-cn/"> hexo</a> |
                     主题: <a href="https://bwmagician.github.io/2025/06/24/%E5%85%B3%E4%BA%8Ebw%E4%B8%BB%E9%A2%98/">bw</a> </p>
             <% } %>
             <div> <%= theme.content.footer.text1 %> </div>

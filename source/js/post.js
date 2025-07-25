@@ -1,5 +1,4 @@
-// 在aside.js之后
-let postContent = document.getElementsByTagName("postContent");
+let postContent = document.getElementById("postContent");
 
 //给代码块的列号对齐，没用
 let gutterLine = document.querySelectorAll(".gutter .line");
@@ -64,4 +63,9 @@ for(let i = 0; i < code.length; ++i) {
     });
 
     resizeObserverCode[i].observe(code[i]);
+}
+
+if(isMobile()){
+    console.log(postContent);
+    postContent.setAttribute('style',`font-size:${3.5}rem;margin-right:${10}svw;margin-left:${10}svw;padding-right:${0}vw;`);
 }

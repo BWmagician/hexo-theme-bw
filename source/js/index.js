@@ -1,8 +1,10 @@
-let pagination = document.getElementById("pagination");
-let articles = document.getElementById("articles");
-
-// 如果页面过短则自动把页码放在底部
-if (pagination && articles.offsetHeight + pagination.offsetHeight + 10 + footer.offsetHeight < window.innerHeight) {
-    // console.log(pagination.offsetHeight);
-    pagination.setAttribute('style', `position:absolute;bottom: ${footer.offsetHeight + 10}px;left:50%;transform:translateX(-50%)`);
+let articleBox = document.getElementsByClassName("articleBox");
+let articleTitles = document.getElementsByClassName("articleTitle");
+if(isMobile()){
+    for(let i = 0; i < articleBox.length; ++i){
+        articleBox[i].setAttribute('style',`width:100%;font-size: 3rem;margin-top:${2}svh;margin-bottom:${2}svh;padding-bottom:${2}svh;`);
+    }
+    for(let i = 0; i < articleTitles.length; ++i){
+        articleTitles[i].setAttribute('style',`font-size: 4rem`);
+    }
 }

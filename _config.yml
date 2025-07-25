@@ -41,7 +41,7 @@ pagination:
   path: /page
   home: /
   #总共会展示 number *2 - 1 个页数
-  number: 5
+  number: 4
 
 #如果想显示中文就改成中文
 prompt:

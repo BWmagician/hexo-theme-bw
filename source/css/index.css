@@ -9,15 +9,24 @@
     padding-left: 3%;
     padding-right: 5%;
     padding-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .articleBox {
     width: 60vw;
     min-height: 8rem;
-    margin: 0px 5px 10px 5px;
     padding: 10px;
     box-sizing: border-box;
     position: relative;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border: 2px solid rgba(0, 0, 0, 0);
+    transition: all 0.5s ease-in-out;
+}
+
+.articleBox:hover{
+    border: 2px solid var(--txtcolor);
 }
 
 .articleTitle {
@@ -48,7 +57,7 @@
 .triangleTopRight {
     height: 0;
     width: 0;
-    border-top: 10px solid black;
+    border-top: 10px solid var(--txtcolor);
     border-left: 10px solid transparent;
     right: 0;
     top: 0;
@@ -59,7 +68,7 @@
 .triangleBottomLeft {
     height: 0;
     width: 0;
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid var(--txtcolor);
     border-right: 10px solid transparent;
     left: 0;
     bottom: 0;

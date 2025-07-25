@@ -79,6 +79,17 @@ window.addEventListener('resize', function() {
     }
 });
 
+if(isMobile()){
+    for(let i = 0; i < asiderH2.length; ++i) {
+        asiderH2[i].style.display = "none";
+        asiderH2Display[i] = "display:none;"; 
+    }
+    for(let i = 0; i < asiderH3.length; ++i) {
+        asiderH3[i].style.display = "none";
+        asiderH3Display[i] = "display:none;"; 
+    }
+}
+
 //加入滚动监听，页面的移动
 document.addEventListener("scroll", function () {
     let x = window.pageYOffset;

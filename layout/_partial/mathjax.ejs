@@ -5,7 +5,7 @@
         preferredFont: "TeX", 
         availableFonts: ["STIX","TeX"], 
         linebreaks: { automatic:true }, 
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
     },
     tex2jax: { 
         inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
@@ -18,7 +18,7 @@
         noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
         Macros: { href: "{}" } 
     },
-    messageStyle: "none"
+    messageStyle: "none",
     }); 
 </script>
 <!-- 给MathJax元素添加has-jax class -->
@@ -32,5 +32,23 @@
 </script>
 <!-- 通过连接CDN加载MathJax的js代码 -->
 <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script>
+MathJax = {
+  loader: {load: ['[tex]/ams']},
+  tex: {
+    inlineMath: [['$', '$']],
+    packages: {'[+]': ['ams']}
+  },
+  // 关键设置：全局缩放比例（1.2表示放大20%）
+  chtml: {
+    scale: 2
+  },
+  // 或 SVG 渲染器
+  svg: {
+    scale: 2
+  }
+};
 </script>

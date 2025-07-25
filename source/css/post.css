@@ -3,23 +3,25 @@ aside {
     height: 100vh;
     right: 0;
     top: 0;
-    padding-top: 30px;
+    margin-top: 7vh;
 
     /* background-color: aqua; */
     position: fixed;
+    box-sizing: border-box;
 }
 
 
 postContent {
     display: block;
-    min-width: 600px;
-    margin-left: 210px;
-    margin-right: 24vw;
+    min-width: 650px;
+    margin-left: 15vw;
+    margin-right: 20vw;
     padding-right: 30px;
     padding-bottom: 20px;
 
     /* 略大 */
     font-size: 1.8rem;
+    box-sizing: border-box;
 }
 
 /* 文章中的链接需要比较醒目 */
@@ -30,6 +32,11 @@ postContent a {
     padding-right: 2px;
     margin-left: 1px;
     margin-right: 1px;
+    display: inline-block;
+}
+
+postContent p a{
+    white-space: pre-wrap;
 }
 
 postHeader {
@@ -56,7 +63,7 @@ h2 {
 }
 
 h3 {
-    border-left: 5px solid black;
+    border-left: 5px solid var(--txtcolor);
     padding-left: 3px;
     font-size: 3.0rem;
     margin-top: 45px;
@@ -102,7 +109,7 @@ postContent p {
 .highlight {
     margin-top: 15px;
     margin-bottom: 15px;
-    background-color: rgb(234, 234, 234);
+    background-color: var(--cdcolor);
     border-radius: 5px;
 }
 
@@ -110,17 +117,17 @@ pre,
 code,
 .code {
     font-family: 'Fira Code', monospace;
-    font-size: 1.6rem;
     font-feature-settings: 'liga', 'calt';
     /* 启用连字 */
 }
 
 /* 给行内代码块加入特效 */
 code {
-    background-color: rgb(234, 234, 234);
+    background-color: var(--cdcolor);
     border-radius: 5px;
     padding: 0px 2px 0px 2px;
     margin-left: 3px;
+    display: inline-block;
 }
 
 img,
@@ -132,9 +139,20 @@ figure {
 }
 
 .code span{
-    white-space: pre-wrap;
+    white-space: var(--codeWrap);
 }
 
 .gutter span{
     display: inline-block;
+}
+
+postContent .MathJax,
+postContent span{
+    white-space: pre-wrap;
+    font-size: 100%;
+}
+
+table {
+    overflow-x: auto;
+    display: block;
 }

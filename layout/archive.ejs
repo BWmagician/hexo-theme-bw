@@ -11,7 +11,7 @@
           <!-- 月份变化，重开一块 -->
             <% if(year!=post.date.year()||month!=post.date.month()){ %>
                 <% year=post.date.year(),month=post.date.month(); %>
-               <h3 class="archiveMonths" style="font-size: 2rem;"> <%= `${year}.${month+1}`%>  </h3>
+               <h3 class="archiveMonths"> <%= `${year}.${month+1}`%>  </h3>
             <% } %>
            <!-- 生成文章缩略 -->
             <div class="archiveArticlesBox">
