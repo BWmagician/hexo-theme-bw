@@ -3,21 +3,34 @@ let footer = document.getElementById("footer");
 let pagination = document.getElementById("pagination");
 let articles = document.getElementById("articles");
 
+function max(a, b){
+    return a > b ? a : b;
+}
 
 // 如果页面过短则自动把footer放在底部，防止latex加载带来的高度变化
 const resizeObserverContainer = new ResizeObserver(x => {
     console.log(container.offsetHeight);
-    if (container.offsetHeight + footer.scrollHeight - 65  < window.innerHeight) {
-        footer.setAttribute('style', 'position: absolute;');
-        footer.style.bottom = 0;
-    }
-    else footer.setAttribute('style','');
-    // 如果页面过短则自动把页码放在底部
-    if (pagination && articles.offsetHeight + pagination.offsetHeight - 55 + footer.offsetHeight < window.innerHeight) {
-        // console.log(pagination.offsetHeight);
-        pagination.setAttribute('style', `position:absolute;bottom: ${footer.offsetHeight + 10}px;left:50%;transform:translateX(-50%)`);
-    }
+    let navHeight = max(window.innerHeight*0.07 , 65);
+    let paginationHeight = pagination ? pagination.offsetHeight : 0;
+    let footerHeight = 100;
 
+    if(articles){
+        if (pagination && articles.offsetHeight + paginationHeight + navHeight + footerHeight + 20 < window.innerHeight) {
+            // console.log(pagination.offsetHeight);
+            pagination.setAttribute('style', `position:absolute;bottom: ${footerHeight + 10}px;left:50%;transform:translateX(-50%)`);
+            footer.setAttribute('style', 'position: absolute;');
+            footer.style.bottom = 0;
+        }
+        else footer.setAttribute('style','');
+        // 如果页面过短则自动把页码放在底部
+    }
+    else{
+        if ( container.offsetHeight + footerHeight < window.innerHeight){
+            footer.setAttribute('style', 'position: absolute;');
+            footer.style.bottom = 0;
+        }
+        else footer.setAttribute('style',''); 
+    }
 });
 
 resizeObserverContainer.observe(container);
@@ -41,14 +54,19 @@ function isMobile() {
 let mobileStr = "";
 
 if(isMobile()){
-    document.body.setAttribute('style','font-size:3.5rem');
+    document.body.setAttribute('style','font-size:4rem;');
     document.documentElement.style.setProperty('--navText', '5rem');
     document.documentElement.style.setProperty('--codeWrap', 'pre');
-        document.documentElement.style.setProperty('--arcText', '4rem');
+    document.documentElement.style.setProperty('--arcText', '4rem');
+}
+
+let nav = document.getElementById('navigation');
+console.log(nav.offsetHeight);
+if(nav.scrollHeight>100){
     mobileStr = "mobile";
 }
 
-
+//亮暗模式
 let ldPic = document.getElementById("lightDarkButton");
 function checkMode(){
     if(modelCount==0){

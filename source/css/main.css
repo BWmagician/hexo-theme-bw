@@ -1,3 +1,18 @@
+:root{
+    --bgcolor: white;
+    --txtcolor: black;
+    --sdcolor: rgba(0, 0, 0, 0.135);
+    --cdcolor: rgb(234, 234, 234);
+
+    /* --htmlText: 62.5%; */
+    --navText: 3rem;
+    --arcText: 2rem;
+
+    --codeWrap: pre-wrap;
+
+    --postChdmt: 65px; /*postContentHeadersMargin-top*/
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,18 +23,7 @@ html {
     font-size: 62.5%;
     height: 100%;
     width: 100%;
-}
-
-:root{
-    --bgcolor: white;
-    --txtcolor: black;
-    --sdcolor: rgba(0, 0, 0, 0.135);
-    --cdcolor: rgb(234, 234, 234);
-
-    --navText: 3rem;
-    --arcText: 2rem;
-
-    --codeWrap: pre-wrap;
+    -webkit-text-size-adjust: 100%;
 }
 
 ::selection {
@@ -46,7 +50,7 @@ nav {
 
 main {
     min-height: 100vh;
-    margin-top: 7svh;
+    margin-top: max(65px,7svh);
     position: relative;
 }
 
@@ -64,8 +68,8 @@ a:active {
 }
 
 #footer {
-    height: 10rem;
-    width: 100lvw;
+    height: 100px;
+    width: 100svw;
     text-align: center;
     border-top: 2px solid;
     display: flex;
@@ -108,6 +112,7 @@ a:active {
 }
 
 #pagination {
+    margin-top: 10px;
     margin-bottom: 10px;
     justify-content: center;
     display: flex;
